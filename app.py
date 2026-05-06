@@ -6,7 +6,7 @@ import json
 st.set_page_config(page_title="Grok TTS 英語学習アプリ", layout="wide")
 st.title("🚀 Grok TTS バイリンガル読み上げアプリ")
 
-api_key = st.text_input("xAI APIキー（sk-から始まるキー）", type="password", value=st.session_state.get("api_key", ""))
+api_key = st.text_input("xAI APIキー（xai-から始まるキー）", type="password", value=st.session_state.get("api_key", ""))
 
 voice = st.selectbox("声を選ぶ（Grok TTS）", ["eve", "ara", "rex", "sal", "leo"], index=0)
 
@@ -14,7 +14,7 @@ LLM_PROMPT = """あなたは最高の言語学習アシスタントです。
 以下の英語テキストを処理して、JSON形式で返してください。
 
 1. 自然な1文ごとに分割
-2. 各文に自然な日本語訳
+2. 各文に自然で口語的な日本語訳を付ける
 3. Grok TTS用に<emphasis>重要語</emphasis>や[pause]などを入れたtts_textを作成
 
 出力はJSON配列のみ：
