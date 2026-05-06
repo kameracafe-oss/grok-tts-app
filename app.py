@@ -6,7 +6,7 @@ import json
 st.set_page_config(page_title="Grok TTS 英語学習アプリ", layout="wide")
 st.title("🚀 Grok TTS バイリンガル読み上げアプリ")
 
-api_key = st.text_input("xAI APIキー（xai-から始まるキー）", type="password", value=st.session_state.get("api_key", ""))
+api_key = st.text_input("xAI APIキー（xai-から始まるキー）", type="password")
 
 voice = st.selectbox("声を選ぶ（Grok TTS）", ["eve", "ara", "rex", "sal", "leo"], index=0)
 
@@ -85,4 +85,4 @@ if "sentences" in st.session_state:
             audio = generate_tts(sent["tts_text"], st.session_state.voice)
             st.download_button("今すぐダウンロード", audio, f"sentence_{sent['id']}.mp3", "audio/mp3", key=f"download_{sent['id']}")
 
-st.caption("Grok TTS全力活用｜1文ごと再生・日本語訳・MP3ダウンロード・キャッシュ対応")
+st.caption("Grok TTS全力活用アプリ｜1文ごと再生・日本語訳・MP3ダウンロード")
